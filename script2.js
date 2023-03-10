@@ -17,7 +17,7 @@ let mpf = 3125
     let da = 0
     function fly() {
       total += one
-      document.getElementById("mab").innerHTML = total
+      //document.getElementById("mab").innerHTML = total
       def -= 1
       
       
@@ -27,7 +27,7 @@ let mpf = 3125
 
     function show()
     {
-      document.getElementById("no").innerHTML = ("Defences at " + def +"%")
+      //document.getElementById("no").innerHTML = ("Defences at " + def +"%")
     }
     
     
@@ -76,7 +76,7 @@ let mpf = 3125
           }
         }
       total -= 10
-      document.getElementById("mab").innerHTML = total
+      //document.getElementById("mab").innerHTML = total
       }
       
         }
@@ -103,12 +103,12 @@ let mpf = 3125
         {
           if (dg > 0 && tb > 0 && eg > 0  && ea > 0 && da > 0 && pr > 0 && ns > 0 && sa > 0)
         {
-          window.alert("You improve your island defences to 100%")
+          //window.alert("You improve your island defences to 100%")
           def = 100
         }
           else
     {
-      window.alert("You need troops posted on all 8 atolls before you can fully improve their defences. Minor boost in defence provided.")
+      //window.alert("You need troops posted on all 8 atolls before you can fully improve their defences. Minor boost in defence provided.")
       def += 2
       if (def > 100)
       {
@@ -185,7 +185,7 @@ let mpf = 3125
       {
         if (mpf < 1)
         {
-          window.alert("You have run out of skilled personnel within their police force. They cannot continue fighting, lest they neglect dealing with crime at home. They agree to an armistice. ")
+          window.alert("You have run out of skilled personnel within your police force. You cannot continue fighting, lest you neglect dealing with crime at home. You agree to an armistice. ")
          throw new Error()
         }
         if (!atolls.includes(1))
@@ -214,10 +214,52 @@ function flag(x)
         document.getElementById("defe").innerHTML = "Predicted defences at "+def+"%."
         document.getElementById("mab").innerHTML = mpf
       }
+
+
+function defend()
+  {
+    if (def <= 50)
+    {
+      
+      for (let i = 0; i< 10; i++)
+        {
+          setTimeout(upgrade,100)
+        }
+    }
+    else
+    {
+    const action = Math.floor(Math.random()*8)
+    if (action == 1 || action == 7)
+    {
+      for (let i =0; i< 10; i++)
+        {
+          setTimeout(fly,100)
+        }
+    }
+    else if (action >= 2 && action < 6)
+    {
+      for (let i = 0; i < 3; i++)
+      {
+        setTimeout(send,800)
+      }
+    }
+    else if (action == 0)
+    {
+      if (total < cost)
+      {
+        for (let i = 0; i < cost/ one ; i++)
+          {
+            setTimeout(fly,100)
+          }
+      }
+      prop()
+    }
+    }
+  }
 window.setInterval(scrdate, 1000)    
 window.setInterval(winState, 10000)
 window.setInterval(attack,20000)
-//window.setInterval(defend,1000)
+window.setInterval(defend,1500)
     
 
     
