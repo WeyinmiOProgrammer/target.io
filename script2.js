@@ -82,7 +82,7 @@ let mpf = 3125
         }
       else
       {
-        document.getElementById("no").innerHTML = "You can't post troops on enemy occupied areas"
+        //document.getElementById("no").innerHTML = "You can't post troops on enemy occupied areas"
       }
     }
 
@@ -124,7 +124,7 @@ let mpf = 3125
         one *= 2
         total -= cost
         cost *= 2
-        document.getElementById("mab").innerHTML = total
+        //document.getElementById("mab").innerHTML = total
         
       }
       
