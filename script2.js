@@ -1,6 +1,6 @@
 let mpf = 3125
     let str = 1
-    
+    let timer = 20
     const atolls = new Array(1,1,1,1,1,1,1,1)
     let sug = true
     let total = 0
@@ -213,6 +213,12 @@ function flag(x)
         document.getElementById("eig").innerHTML = flag(7)
         document.getElementById("defe").innerHTML = "Predicted defences at "+def+"%."
         document.getElementById("mab").innerHTML = mpf
+        timer = timer - 1
+        if (timer < 0)
+        {
+          timer = 20
+        }
+        document.getElementById("time").innerHTML = "Next attack in " +timer+ "  seconds"
       }
 
 
